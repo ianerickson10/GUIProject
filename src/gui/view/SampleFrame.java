@@ -24,5 +24,6 @@ public class SampleFrame extends JFrame
 		this.setTitle("Le GUI");
 		this.setSize(1000, 500);
 		this.setResizable(true);
+		this.setVisible(true);
 	}
 }
