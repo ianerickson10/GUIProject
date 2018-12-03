@@ -5,6 +5,7 @@ import gui.controller.GuiController;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
 
 public class SamplePanel extends JPanel
 {
@@ -19,8 +20,9 @@ public class SamplePanel extends JPanel
 		
 		this.appController = appController;
 		this.colorButton = new JButton("Click me!");
-		
+		colorButton.setForeground(Color.CYAN);
 		appLayout = new SpringLayout();
+		
 		
 		setupPanel();
 		setupLayout();
@@ -31,18 +33,22 @@ public class SamplePanel extends JPanel
 	{
 		this.setBackground(Color.LIGHT_GRAY);
 		this.add(colorButton);
+		colorButton.setBackground(Color.DARK_GRAY);
 		this.textLabel = new JLabel("This is a color changing app");
+		
+		textLabel.setFont(new Font("Apple Chancery", Font.BOLD | Font.ITALIC, 20));
+		
 		this.add(textLabel);
 		this.setLayout(appLayout);
 	}
 	
 	private void setupLayout()
 	{
-		appLayout.putConstraint(SpringLayout.NORTH, colorButton, 125, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, colorButton, 165, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.WEST, textLabel, 124, SpringLayout.WEST, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, textLabel, -52, SpringLayout.NORTH, colorButton);
 		colorButton.setHorizontalAlignment(SwingConstants.LEFT);
+		appLayout.putConstraint(SpringLayout.EAST, colorButton, -168, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, colorButton, 52, SpringLayout.SOUTH, textLabel);
+		appLayout.putConstraint(SpringLayout.NORTH, textLabel, 33, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, textLabel, -102, SpringLayout.EAST, this);
 	}
 	
 	private void setupListeners()

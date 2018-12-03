@@ -22,7 +22,7 @@ public class SampleFrame extends JFrame
 	{
 		this.setContentPane(appPanel);
 		this.setTitle("Le GUI");
-		this.setSize(1000, 500);
+		this.setSize(500, 500);
 		this.setResizable(true);
 		this.setVisible(true);
 	}
