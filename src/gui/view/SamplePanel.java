@@ -11,15 +11,16 @@ public class SamplePanel extends JPanel
 	private GuiController appController;
 	private JLabel textLabel;
 	private JButton colorButton;
+	private SpringLayout appLayout;
 	
 	public SamplePanel(GuiController appController)
 	{
 		super();
 		
 		this.appController = appController;
-		
-		this.textLabel = new JLabel("This is a color changing app");
 		this.colorButton = new JButton("Click me!");
+		
+		appLayout = new SpringLayout();
 		
 		setupPanel();
 		setupLayout();
@@ -29,13 +30,19 @@ public class SamplePanel extends JPanel
 	private void setupPanel()
 	{
 		this.setBackground(Color.LIGHT_GRAY);
-		this.add(textLabel);
 		this.add(colorButton);
+		this.textLabel = new JLabel("This is a color changing app");
+		this.add(textLabel);
+		this.setLayout(appLayout);
 	}
 	
 	private void setupLayout()
 	{
-		
+		appLayout.putConstraint(SpringLayout.NORTH, colorButton, 125, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, colorButton, 165, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.WEST, textLabel, 124, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, textLabel, -52, SpringLayout.NORTH, colorButton);
+		colorButton.setHorizontalAlignment(SwingConstants.LEFT);
 	}
 	
 	private void setupListeners()
@@ -51,7 +58,7 @@ public class SamplePanel extends JPanel
 	
 	private void changeBackgroundColor()
 	{
-		int red = (int) (Math.random() * 256);
+		int red = (int) (Math.random() * 100);
 		int green = (int) (Math.random() * 256);
 		int blue = (int) (Math.random() * 256);
 		
