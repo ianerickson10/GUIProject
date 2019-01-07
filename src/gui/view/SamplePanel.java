@@ -29,6 +29,8 @@ public class SamplePanel extends JPanel
 		setupListeners();
 	}
 	
+//----------------------------------------------------------------------\\	
+	
 	private void setupPanel()
 	{
 		this.setBackground(Color.LIGHT_GRAY);
